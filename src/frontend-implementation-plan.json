@@ -1,0 +1,54 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Remove caffeine.ai branding and document custom/short domain guidance",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Remove all visible caffeine.ai watermark/branding from the UI (footer and any other user-facing text).",
+      "acceptanceCriteria": [
+        "The AppShell footer no longer displays the text/link \"caffeine.ai\" and does not link to caffeine.ai.",
+        "No other user-facing UI text (header/footer/pages) contains \"caffeine.ai\" (case-insensitive).",
+        "The app continues to build and render normally after removing the branding."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AppShell.tsx",
+          "operation": "modify",
+          "description": "Remove the footer referral text/link and any other user-facing mentions of \"caffeine.ai\" from the AppShell layout while preserving overall footer layout and build stability."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Remove hardcoded caffeine.ai URL usage and add English documentation describing custom/short domain setup at a high level without referencing caffeine.ai.",
+      "acceptanceCriteria": [
+        "There are no hardcoded links to \"https://caffeine.ai\" in the frontend codebase.",
+        "Frontend docs/README include a short section describing that the deployed app URL is determined by the IC deployment/canister and that a shorter/custom domain requires external DNS/domain configuration steps (described at a high level) without mentioning caffeine.ai.",
+        "All new/updated user-facing documentation text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AppShell.tsx",
+          "operation": "modify",
+          "description": "Eliminate any hardcoded external branding URL usage pointing to caffeine.ai (including the dynamic referral URL construction) and replace with neutral/non-branded behavior (e.g., no external branding link)."
+        },
+        {
+          "path": "frontend/src/utils/urlParams.ts",
+          "operation": "modify",
+          "description": "Replace the example/comment text that includes \"caffeineAdminToken\" with neutral naming so the codebase avoids caffeine.ai-derived naming where practical, without changing runtime behavior."
+        },
+        {
+          "path": "frontend/README.md",
+          "operation": "modify",
+          "description": "Add an English documentation section explaining that the deployed site URL is determined by the IC canister deployment, and that using a shorter/custom domain requires external domain/DNS and IC boundary/gateway configuration steps at a high level (no caffeine.ai references)."
+        },
+        {
+          "path": "frontend/docs/scaling-and-deployment.md",
+          "operation": "modify",
+          "description": "Add a brief English note in deployment guidance reiterating that the canister URL is assigned by the IC deployment and that custom domains are configured externally via DNS and IC boundary/gateway routing (high-level only, no caffeine.ai references)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,2 +1,3 @@
-# auth-rbac-crud-canister-apis-with-a-basic-react-dashboard-and-api-docs
-Exported from Caffeine project: Auth + RBAC + CRUD canister APIs with a basic React dashboard and API docs
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

@@ -1,0 +1,65 @@
+{
+  "kind": "build_request",
+  "title": "Remove caffeine.ai watermark/branding and avoid caffeine.ai in displayed URLs",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "text": "Remove all visible caffeine.ai watermark/branding from the website UI, including the footer referral link and any other user-facing mentions of caffeine.ai.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "just remove the water mark of caffine.ai"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The AppShell footer no longer displays the text/link \"caffeine.ai\" and does not link to caffeine.ai.",
+        "No other user-facing UI text (header/footer/pages) contains \"caffeine.ai\" (case-insensitive).",
+        "The app continues to build and render normally after removing the branding."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Remove any hardcoded caffeine.ai URL usage from the frontend and replace it with neutral/non-branded behavior (e.g., no external branding link), and update documentation to explain how to use a shorter/custom domain for the deployed site (without referencing caffeine.ai).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "change the url of  website to something smaller and remove caffine.ai from url"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There are no hardcoded links to \"https://caffeine.ai\" in the frontend codebase.",
+        "Frontend docs/README include a short section describing that the deployed app URL is determined by the IC deployment/canister and that a shorter/custom domain requires external DNS/domain configuration steps (described at a high level) without mentioning caffeine.ai.",
+        "All new/updated user-facing documentation text is in English."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/components/ui (read-only components must be composed, not edited).",
+    "Do not claim to change the actual hosted domain purely via frontend/backend code; only remove caffeine.ai references and document how to use a custom/short domain externally."
+  ],
+  "nonGoals": [
+    "Purchasing/registering a domain, configuring DNS records, or setting up boundary node/domain routing on the user’s behalf.",
+    "Adding new product features unrelated to removing caffeine.ai branding or documenting custom domain usage."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

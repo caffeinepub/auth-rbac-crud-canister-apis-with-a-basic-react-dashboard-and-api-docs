@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-remove-all-visible-caffeine-ai-watermark-branding-from-the-website-ui-including-the-footer-referral-link-and-any-other-user-facing-mentions-of-caffeine-ai",
+      "featureTitle": "Remove all visible caffeine.ai watermark/branding from the website UI, including the footer referral link and any other user-facing mentions of caffeine.ai.",
+      "files": [
+        "frontend/src/components/AppShell.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-any-hardcoded-caffeine-ai-url-usage-from-the-frontend-and-replace-it-with-neutral-non-branded-behavior-e-g-no-external-branding-link-and-update-documentation-to-explain-how-to-use-a-shorter-custom-domain-for-the-deployed-site-without-referencing-caffeine-ai",
+      "featureTitle": "Remove any hardcoded caffeine.ai URL usage from the frontend and replace it with neutral/non-branded behavior (e.g., no external branding link), and update documentation to explain how to use a shorter/custom domain for the deployed site (without referencing caffeine.ai).",
+      "files": [
+        "frontend/src/components/AppShell.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

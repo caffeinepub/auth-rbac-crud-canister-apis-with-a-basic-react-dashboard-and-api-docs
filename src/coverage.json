@@ -1,0 +1,51 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T08:52:37.221Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-19",
+        "summary": "Remove all visible caffeine.ai watermark/branding from the website UI, including the footer referral link and any other user-facing mentions of caffeine.ai.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/AppShell.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AppShell.tsx"
+        ]
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Remove any hardcoded caffeine.ai URL usage from the frontend and replace it with neutral/non-branded behavior (e.g., no external branding link), and update documentation to explain how to use a shorter/custom domain for the deployed site (without referencing caffeine.ai).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/AppShell.tsx",
+          "frontend/src/utils/urlParams.ts",
+          "frontend/README.md",
+          "frontend/docs/scaling-and-deployment.md"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AppShell.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/AppShell.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

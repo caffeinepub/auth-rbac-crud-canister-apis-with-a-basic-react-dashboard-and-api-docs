@@ -1,0 +1,21 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, route definitions (login, dashboard, index), and theme provider integration.",
+  "frontend/src/pages/LoginPage.tsx": "Login page component with Internet Identity authentication flow, loading states, and error handling.",
+  "frontend/src/pages/DashboardPage.tsx": "Protected dashboard page displaying user profile, role information, task insights section, and the tasks management panel with profile setup modal.",
+  "frontend/src/components/AppShell.tsx": "Application shell component providing consistent header navigation with branding and auth controls, and a simplified footer without external attribution links.",
+  "frontend/src/components/AccessDeniedScreen.tsx": "Access denied screen component shown when unauthenticated users attempt to access protected routes.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for first-time user profile setup, collecting user name on initial authentication.",
+  "frontend/src/components/ProtectedRoute.tsx": "Route guard component that redirects unauthenticated users to login page.",
+  "frontend/src/features/tasks/TasksPanel.tsx": "Complete task management UI with create/edit dialogs supporting priority, due date, and tags; includes filtering by status and tag, sorting by due date, and responsive table display with visual indicators for priority and overdue tasks using the Priority enum from backend types.",
+  "frontend/src/features/tasks/taskHooks.ts": "React Query hooks for all task operations including create, update, delete, list, and filtered list with proper cache invalidation and error handling for the expanded Task model with priority, due date, and tags.",
+  "frontend/src/features/tasks/README.md": "Documentation for the tasks feature module explaining structure, usage, and extension patterns.",
+  "frontend/src/features/auth/README.md": "Documentation for the authentication feature module covering Internet Identity integration and security practices.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for user profile and role management with proper loading state handling.",
+  "frontend/README.md": "Comprehensive project documentation with setup instructions, usage guide, custom domain configuration guidance, API documentation references, and troubleshooting tips.",
+  "frontend/docs/api-reference.md": "Complete API reference documentation covering authentication, RBAC, all task endpoints including the new filtered listing method, expanded Task model with priority/dueDate/tags, backward compatibility notes, error codes, and usage examples.",
+  "frontend/docs/postman_collection.json": "Postman collection with pre-configured requests for all backend API endpoints including the new filtered listing method and expanded task creation/update with priority, due date, and tags fields.",
+  "frontend/docs/scaling-and-deployment.md": "Detailed guide on Internet Computer canister architecture, scaling strategies, performance optimization, deployment best practices including custom domain setup, and cost estimation.",
+  "frontend/src/index.css": "Global styles with OKLCH-based color system featuring professional blue-gray palette for light/dark modes with proper contrast ratios.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom color tokens, Inter font family, enhanced shadows, and extended theme utilities.",
+  "frontend/src/features/tasks/TasksInsights.tsx": "Dashboard insights component displaying total, active, completed, and overdue task counts with automatic updates when task data changes."
+}

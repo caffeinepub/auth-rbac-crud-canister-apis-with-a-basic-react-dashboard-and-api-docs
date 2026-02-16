@@ -1,0 +1,55 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T08:52:37.218Z",
+  "summary": "The diff removes the footer attribution/link in AppShell (addressing part of REQ-19), but there is no diff evidence that all other user-facing caffeine.ai mentions and hardcoded https://caffeine.ai links were removed across the frontend, nor that the frontend README/docs were updated with custom-domain guidance. The diff also introduces unrelated rebranding/UI changes and updates to meta/state files that were not requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-19",
+      "requirement": "Remove all visible caffeine.ai watermark/branding from the website UI, including the footer referral link and any other user-facing mentions of caffeine.ai.",
+      "reason": "While the AppShell footer no longer shows any external attribution, the diff summary does not provide evidence that all other user-facing UI text across the app (header/footer/pages) has been checked/updated to remove any remaining 'caffeine.ai' mentions.",
+      "evidence": [
+        "frontend/src/components/AppShell.tsx"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "requirement": "Remove any hardcoded caffeine.ai URL usage from the frontend and replace it with neutral/non-branded behavior (e.g., no external branding link).",
+      "reason": "The diff only shows changes to AppShell; there is no evidence in the provided diff summary that the broader frontend codebase was searched/updated to remove all hardcoded \"https://caffeine.ai\" links.",
+      "evidence": [
+        "frontend/src/components/AppShell.tsx"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "requirement": "Update frontend documentation/README with a short section describing IC/canister-determined URLs and high-level external DNS/custom domain steps, without mentioning caffeine.ai, in English.",
+      "reason": "No README/docs content changes are shown in the diff summary (only a metadata summary file was modified), so there is no evidence that the requested documentation section was added/updated.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Rebranded the app header/name and tagline to 'TaskFlow' / 'Secure Task Management' and added/changed header iconography.",
+      "reason": "The request was to remove caffeine.ai watermark/branding and links, not to introduce new product branding or change the app name/tagline.",
+      "evidence": [
+        "frontend/src/components/AppShell.tsx"
+      ]
+    },
+    {
+      "description": "Modified repository metadata/summary files (frontend-file-summaries.txt and project_state.json).",
+      "reason": "The BuildRequest focuses on removing caffeine.ai references from UI/code and updating frontend docs; it does not request changes to these meta/state files.",
+      "evidence": [
+        "frontend-file-summaries.txt",
+        "project_state.json"
+      ]
+    }
+  ],
+  "confidence": 0.68,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/AppShell.tsx",
+    "project_state.json"
+  ]
+}

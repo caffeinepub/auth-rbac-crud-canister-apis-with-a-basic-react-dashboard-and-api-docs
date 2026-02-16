@@ -1,0 +1,353 @@
+{
+  "info": {
+    "name": "TaskFlow API",
+    "description": "API collection for TaskFlow task management application with Internet Identity authentication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Get Caller User Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"getCallerUserProfile\",\n  \"args\": []\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Retrieves the profile of the authenticated user. Returns null if no profile exists."
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"getCallerUserProfile\",\n  \"args\": []\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": "{\n  \"name\": \"John Doe\",\n  \"role\": \"user\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Save Caller User Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"saveCallerUserProfile\",\n  \"args\": [{\n    \"name\": \"John Doe\"\n  }]\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Creates or updates the profile for the authenticated user."
+          }
+        },
+        {
+          "name": "Get Caller User Role",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"getCallerUserRole\",\n  \"args\": []\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Returns the role of the authenticated user."
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"getCallerUserRole\",\n  \"args\": []\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": "\"user\""
+            }
+          ]
+        },
+        {
+          "name": "Is Caller Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"isCallerAdmin\",\n  \"args\": []\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Returns true if the authenticated user has admin privileges."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"createTask\",\n  \"args\": [\n    \"task-123\",\n    \"Complete project proposal\",\n    \"Draft and submit the Q1 project proposal\",\n    \"high\",\n    1740787200000000000,\n    [\"work\", \"urgent\", \"q1\"]\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Creates a new task with priority, due date, and tags. The authenticated user becomes the owner."
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"createTask\",\n  \"args\": [\n    \"task-123\",\n    \"Complete project proposal\",\n    \"Draft and submit the Q1 project proposal\",\n    \"high\",\n    1740787200000000000,\n    [\"work\", \"urgent\", \"q1\"]\n  ]\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": "null"
+            }
+          ]
+        },
+        {
+          "name": "Get Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"getTask\",\n  \"args\": [\"task-123\"]\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Retrieves a single task by ID. Users can only view their own tasks; admins can view all tasks."
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"getTask\",\n  \"args\": [\"task-123\"]\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": "{\n  \"id\": \"task-123\",\n  \"owner\": \"2vxsx-fae\",\n  \"title\": \"Complete project proposal\",\n  \"description\": \"Draft and submit the Q1 project proposal\",\n  \"completed\": false,\n  \"priority\": \"high\",\n  \"dueDate\": 1740787200000000000,\n  \"tags\": [\"work\", \"urgent\", \"q1\"]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"updateTask\",\n  \"args\": [\n    \"task-123\",\n    \"Complete project proposal\",\n    \"Draft and submit the Q1 project proposal - updated\",\n    true,\n    \"medium\",\n    1740787200000000000,\n    [\"work\", \"completed\"]\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Updates an existing task including priority, due date, and tags. Users can only update their own tasks; admins can update any task."
+          }
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"deleteTask\",\n  \"args\": [\"task-123\"]\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Deletes a task. Users can only delete their own tasks; admins can delete any task."
+          }
+        },
+        {
+          "name": "List Tasks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"listTasks\",\n  \"args\": []\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Returns all tasks. Users see only their own tasks; admins see all tasks."
+          },
+          "response": [
+            {
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"listTasks\",\n  \"args\": []\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": "[\n  {\n    \"id\": \"task-123\",\n    \"owner\": \"2vxsx-fae\",\n    \"title\": \"Complete project proposal\",\n    \"description\": \"Draft and submit the Q1 project proposal\",\n    \"completed\": false,\n    \"priority\": \"high\",\n    \"dueDate\": 1740787200000000000,\n    \"tags\": [\"work\", \"urgent\", \"q1\"]\n  },\n  {\n    \"id\": \"task-456\",\n    \"owner\": \"2vxsx-fae\",\n    \"title\": \"Review code changes\",\n    \"description\": \"Review PR #42\",\n    \"completed\": true,\n    \"priority\": \"medium\",\n    \"dueDate\": null,\n    \"tags\": [\"code-review\"]\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "List Filtered Tasks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"method\": \"listFilteredTasks\",\n  \"args\": [false, \"urgent\"]\n}"
+            },
+            "url": {
+              "raw": "{{canister_url}}",
+              "host": ["{{canister_url}}"]
+            },
+            "description": "Returns filtered tasks based on completion status and optional tag filter. First parameter is showCompleted (boolean), second is tagFilter (string or null)."
+          },
+          "response": [
+            {
+              "name": "Active tasks with 'urgent' tag",
+              "originalRequest": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"listFilteredTasks\",\n  \"args\": [false, \"urgent\"]\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": "[\n  {\n    \"id\": \"task-123\",\n    \"owner\": \"2vxsx-fae\",\n    \"title\": \"Complete project proposal\",\n    \"description\": \"Draft and submit the Q1 project proposal\",\n    \"completed\": false,\n    \"priority\": \"high\",\n    \"dueDate\": 1740787200000000000,\n    \"tags\": [\"work\", \"urgent\", \"q1\"]\n  }\n]"
+            },
+            {
+              "name": "All completed tasks",
+              "originalRequest": {
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"method\": \"listFilteredTasks\",\n  \"args\": [true, null]\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [],
+              "body": "[\n  {\n    \"id\": \"task-456\",\n    \"owner\": \"2vxsx-fae\",\n    \"title\": \"Review code changes\",\n    \"description\": \"Review PR #42\",\n    \"completed\": true,\n    \"priority\": \"medium\",\n    \"dueDate\": null,\n    \"tags\": [\"code-review\"]\n  }\n]"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "canister_url",
+      "value": "https://<canister-id>.ic0.app",
+      "type": "string"
+    }
+  ]
+}
